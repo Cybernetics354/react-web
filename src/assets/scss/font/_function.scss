@@ -1,0 +1,66 @@
+@import '../core/core';
+
+@function get-font($name, $variant: normal) {
+	@return map-get(map-get($fonts, $name), $variant);
+}
+
+@function get-font-family($name, $variant: normal) {
+	@return list-get(get-font($name, $variant), 1);
+}
+
+@function get-font-weight($name, $variant: normal) {
+	@return list-get(get-font($name, $variant), 2);
+}
+
+@function font-style($style) {
+	@return map-get($font-styles, $style);
+}
+
+@function font-family($style) {
+	$val: font-style($style);
+	@if length($val) >= 2 {
+		@return (
+			get-font-family(list-get($val, 1), list-get($val, 2)),
+			'sans-serif',
+		);
+	}
+
+	@return 'sans-serif';
+}
+
+@function font-weight($style) {
+	$val: font-style($style);
+	@if length($val) >= 2 {
+		@return get-font-weight(list-get($val, 1), list-get($val, 2));
+	}
+
+	@return normal;
+}
+
+@function font-size($style) {
+	$val: font-style($style);
+	@if length($val) >= 3 {
+		$val: list-get($val, 3);
+		@if $val == "@" {
+			$val: inherit;
+		}
+
+		@return $val;
+	}
+
+	@return inherit;
+}
+
+@function font-color($style) {
+	$val: font-style($style);
+	@if length($val) >= 4 {
+		$val: list-get($val, 4);
+		@if $val == "@" {
+			$val: inherit;
+		}
+
+		@return $val;
+	}
+
+	@return inherit;
+}

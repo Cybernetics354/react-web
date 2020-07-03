@@ -1,0 +1,13 @@
+@import 'function';
+
+@mixin font($name, $variant) {
+	font-family: get-font-family($name, $variant);
+	font-weight: get-font-weight($name, $variant);
+}
+
+@mixin font-style($style) {
+	font-family: font-family($style);
+	font-weight: font-weight($style);
+	font-size: font-size($style);
+	color: font-color($style);
+}

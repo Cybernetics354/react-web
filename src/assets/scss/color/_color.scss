@@ -1,0 +1,48 @@
+@import 'function';
+
+$palettes: (
+	light: (
+		1: #ECEDED,
+		2: #9CA9B3,
+		3: #717D86,
+	),
+	dark: (
+		1: #151719,
+		2: #25282C,
+		3: #33363A,
+	),
+	primary: (
+		1: #FBC02D,
+		2: #FFCE55,
+		3: #FF9900,
+		4: #FFF0CB,
+	),
+	secondary: (
+		1: #24E5AF,
+		2: #73EFCC,
+		3: #1CB68B,
+		4: #D2F9EE,
+	),
+	alert: (
+		error: #FF6171,
+		warning: #FFA173,
+		success: #24E5AF,
+	),
+	font: (
+		white: #FFF,
+		black: #000,
+	),
+);
+
+$colors: (
+	white: get-color(light, 1),
+	black: get-color(dark, 1),
+
+	font-white: get-color(font, white),
+	font-black: get-color(font, black),
+
+	primary: get-color(primary, 1),
+	primary-hover: get-color(primary, 2),
+	primary-darker: get-color(primary, 3),
+	primary-lighter: get-color(primary, 4),
+);

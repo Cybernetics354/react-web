@@ -1,0 +1,9 @@
+@import '../core/core';
+
+@function get-color($elem, $variant) {
+	@return map-get(map-get($palettes, $elem), $variant);
+}
+
+@function color($key) {
+	@return map-get($colors, $key);
+}

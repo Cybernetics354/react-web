@@ -1,0 +1,18 @@
+root = true
+
+[*]
+end_of_line = lf
+
+[*.{ts,tsx,js,jsx,css,less,sass,scss}]
+charset = utf-8
+indent_style = tab
+indent_size = 3
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[{Dockerfile,Makefile}]
+charset = utf-8
+indent_style = tab
+indent_size = 3
+insert_final_newline = true
+trim_trailing_whitespace = true

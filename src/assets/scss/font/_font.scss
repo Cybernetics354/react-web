@@ -1,0 +1,37 @@
+@import 'function';
+@import 'mixin';
+
+@import '../color/color';
+
+// format:
+// - [1]: family
+// - [2]: weight
+$fonts: (
+	quicksand: (
+		light: ("Quicksand Light", normal),
+		normal: ("Quicksand", normal),
+		bold: ("Quicksand", bold),
+	),
+);
+
+// format:
+// - [1]: key
+// - [2]: variant
+// - [3]: size
+// - [4]: color
+$font-styles: (
+	default: (quicksand, normal, 13px, color(black)),
+
+	title: (quicksand, normal, 38px, '@'),
+	title-light: (quicksand, light, 38px, '@'),
+	title-bold: (quicksand, bold, 38px, '@'),
+
+	h1: (quicksand, bold, 38px, '@'),
+	h2: (quicksand, bold, 30px, '@'),
+	h3: (quicksand, bold, 24px, '@'),
+	h4: (quicksand, bold, 20px, '@'),
+
+	navbar-menu: (quicksand, bold, 15px, '@'),
+
+	content: (quicksand, normal, '@', '@'),
+);
