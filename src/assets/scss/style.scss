@@ -1,10 +1,13 @@
 @import 'color/color';
 @import 'font/font';
 @import '../fonts/quicksand/quicksand.css';
+@import 'position/position';
+@import 'transition/transition';
+@import 'components/components';
 
 * {
 	@include font(quicksand, normal);
-	letter-spacing: 1.25px;
+	letter-spacing: 1px;
 }
 
 .navbar {
@@ -12,13 +15,13 @@
 	padding: 15px 3%;
 	color: color(font-white);
 	background-color: transparent;
-	transition: background-color 0.5s;
+	transition: all 0.3s;
 
 	&.sticked {
 		$color-primary: color(primary);
-
 		background-color: $color-primary;
 		color: color(font-white);
+		box-shadow: 0.4px 0.4px 5px #696969;
 	}
 
 	.logo {
@@ -56,3 +59,59 @@
 	margin-top: -75px;
 	padding-top: 75px;
 }
+
+.base {
+	background-color: color(primary);
+	color: color(font-white);
+	border-color: color(primary);
+	transition: all 0.5s;
+	&:hover {
+		background-color: get-color(primary, 3);
+		border-color: get-color(primary, 3);
+		color: color(font-white);
+	}
+}
+
+.outline-base {
+	background-color: transparent;
+	border-width: 2px;
+	border-style: solid;
+	border-color: color(primary);
+	transition: all 0.5s;
+	color: color(dark);
+	&:hover {
+		background-color: color(primary);
+		border-color: color(primary);
+		color: color(font-white);
+	}
+}
+
+.footer {
+	background-color: get-color(dark, 4);
+	color: color(font-white);
+}
+
+.transform-splash {
+	transform: rotateX(180deg) rotateY(180deg);
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 7px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+	background: #f1f1f1;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+	background: color(primary);
+	transition: background 1.5s;
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+	background: black;
+ }

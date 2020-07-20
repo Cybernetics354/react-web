@@ -5,6 +5,8 @@ import { Sticky } from 'react-sticky';
 import classNames from 'classnames';
 
 import Logo from '../../assets/images/logo.png';
+import TransparentButton, { ButtonsInterfaces } from '../parts/buttons';
+import MainContainer from '../parts/container';
 
 const { Content, Sider } = Layout;
 
@@ -31,7 +33,7 @@ export interface HeaderProps {
 class Header extends React.Component<HeaderProps, {}> {
 	render() {
 		const {
-			menus,
+			// menus,
 			hero,
 		} = this.props;
 
@@ -55,24 +57,38 @@ class Header extends React.Component<HeaderProps, {}> {
 						calculatedHeight,
 					}) => (
 						<Layout
-							style={style}
+							style={{zIndex:99, ...style}}
 							className={classNames(
 								'navbar',
-								wasSticky && distanceFromTop <= (stickDistance * -1) ? 'sticked' : undefined,
+								wasSticky && distanceFromTop <= (stickDistance * -0.2) ? 'sticked' : undefined,
 							)}
 						>
-							<Sider style={{ backgroundColor: 'transparent' }}>
-								<img src={ Logo } alt='ALA' className='logo' />
-								<span className='logo-label'>ALA</span>
-							</Sider>
-							<Content className='menu-container'>
-								<span className='menu-item'>
-									Hello world { wasSticky && distanceFromTop !== 0 ? 'Sticked' : '' } { `(${distanceFromTop} from top)` }
-								</span>
-								<span className='menu-item'>
-									World
-								</span>
-							</Content>
+							<MainContainer padding="7%">
+								<Layout style={{ backgroundColor: "transparent" }}>
+									<Sider style={{ backgroundColor: 'transparent' }}>
+										<img src={ Logo } alt='ALA' className='logo' />
+										<span className='logo-label'>ALA</span>
+									</Sider>
+									<Content className='menu-container'>
+										{/* <span className='menu-item'>
+											Hello world { wasSticky && distanceFromTop !== 0 ? 'Sticked' : '' } { `(${distanceFromTop} from top)` }
+										</span>
+										<span className='menu-item'>
+											World
+										</span> */}
+										{/* <HeaderButton directTo="#" label="About" onTap={() => console.log()} />
+										<HeaderButton directTo="/testing" label="Blog" onTap={() => console.log()} />
+										<HeaderButton directTo="#" label="Promo" onTap={() => console.log()} />
+										<HeaderButton directTo="#" label="Help" onTap={() => console.log()} /> */}
+										<HeaderButton directTo="#" label={"isSticky" + isSticky?.toString()} onTap={() => console.log()} />
+										<HeaderButton directTo="#" label={"wasSticky" + wasSticky?.toString()} onTap={() => console.log()} />
+										<HeaderButton directTo="#" label={"distanceFromTop" + distanceFromTop?.toString()} onTap={() => console.log()} />
+										<HeaderButton directTo="#" label={"distanceFromBottom" + distanceFromBottom?.toString()} onTap={() => console.log()} />
+										<HeaderButton directTo="#" label={"calculatedHeight" + calculatedHeight?.toString()} onTap={() => console.log()} />
+										<HeaderButton directTo="#" label={"stickDistance" + stickDistance?.toString()} onTap={() => console.log()} />
+									</Content>
+								</Layout>
+							</MainContainer>
 						</Layout>
 					)}
 				</Sticky>
@@ -99,5 +115,13 @@ class Header extends React.Component<HeaderProps, {}> {
 		);
 	}
 }
+
+const HeaderButton: React.FC<ButtonsInterfaces> = (props) => {
+	const { label, onTap } = props;
+	return (
+		<TransparentButton label={label} onTap={() => onTap()} className="menu-item" />
+	);
+}
+
 
 export default Header;

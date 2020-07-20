@@ -19,7 +19,7 @@ export default class TestingComponent extends React.Component<TestingProps ,Test
 	}
 	render() {
 		console.log("Render Occured");
-		const { name, value } = this.state;
+		const { value } = this.state;
 		return (
 				<div>
 					<p>{ value }</p>

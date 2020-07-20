@@ -1,0 +1,85 @@
+.fade-in {
+	opacity: 0;
+	transition: all 1s;
+	transition-timing-function: ease;
+	&.fade-in-active {
+		opacity: 1;
+	}
+}
+
+.slide-left {
+	transform: translateX(-100px);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 1s;
+	&.slide-left-active {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+.slide-right {
+	transform: translateX(100px);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 1s;
+	&.slide-right-active {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+.slide-bottom {
+	transform: translateY(-100px);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 1s;
+	&.slide-bottom-active {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.slide-top {
+	transform: translateY(100px);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 1s;
+	&.slide-top-active {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.scale-x {
+	transform: scaleX(0.1);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 0.8s;
+	&.scale-x-active {
+		transform: scaleX(1);
+		opacity: 1;
+	}
+}
+
+.scale-y {
+	transform: scaleY(0.1);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 0.8s;
+	&.scale-y-active {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+.scale-xy {
+	transform: scale(0.1, 0.1);
+	transition-timing-function: ease;
+	opacity: 0;
+	transition: all 0.5s;
+	&.scale-xy-active {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+}
